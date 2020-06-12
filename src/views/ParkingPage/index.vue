@@ -5,7 +5,7 @@
       <v-row align="center" justify="center">
         <v-col class="text-center">
           <v-header class="text-center" style="font-size: 20px !important">
-            This website is under maintenance
+            This website is in progress...
           </v-header>
         </v-col>
       </v-row>
@@ -28,18 +28,39 @@
           </v-tooltip>
         </v-col>
       </v-row>
+      <v-row align="center" justify="center">
+        <v-col class="text-center">
+          <v-btn @click="showCV"> Or check my static CV </v-btn>
+        </v-col>
+      </v-row>
+      <v-row align="center" justify="center" v-if="showsCV">
+        <v-col class="text-center">
+          <pdf src="../../static/Hyunsik_CV.pdf"></pdf>
+        </v-col>
+      </v-row>
     </v-container>
   </v-app>
 </template>
 
 <script lang="ts">
+import pdf from 'vue-pdf';
+
 export default {
   name: 'ParkingPage',
+  components: {
+    pdf
+  },
   data: () => {
-    return {};
+    return {
+      showsCV: false
+    };
   },
   computed: {},
-  methods: {}
+  methods: {
+    showCV() {
+      this.showsCV = true;
+    }
+  }
 };
 </script>
 

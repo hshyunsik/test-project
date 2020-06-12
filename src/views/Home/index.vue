@@ -69,19 +69,20 @@ export default {
   },
   data: () => {
     return {
-      src: 'Hyunsik.jpg'
+      src: 'Hyunsik.jpg',
+      drawer: true
     };
   },
   computed: {
-    drawer: {
-      get(): string {
-        return this.$store.state.drawer;
-      },
-      set(value: boolean) {
-        console.log('set');
-        this.$store.dispatch('setDrawer', value);
-      }
-    }
+    // drawer: {
+    //   get(): string {
+    //     return this.$store.state.drawer;
+    //   },
+    //   set(value: boolean) {
+    //     console.log('set');
+    //     this.$store.dispatch('setDrawer', value);
+    //   }
+    // }
   },
   methods: {
     // setMain(image: Image) {

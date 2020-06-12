@@ -29,17 +29,7 @@ export default {
       src: 'Hyunsik.jpg'
     };
   },
-  computed: {
-    drawer: {
-      get(): string {
-        return this.$store.state.drawer;
-      },
-      set(value: boolean) {
-        console.log('set');
-        this.$store.dispatch('setDrawer', value);
-      }
-    }
-  },
+  computed: {},
   methods: {
     // setMain(image: Image) {
     //   this.src = image.src
