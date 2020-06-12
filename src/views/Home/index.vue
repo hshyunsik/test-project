@@ -3,7 +3,7 @@
     <SideBar
       :menuItems="[
         { path: '/', name: 'firstItem', icon: 'home' },
-        { path: '/about', name: 'secItem', icon: 'email' }
+        { path: '/about', name: 'secItem', icon: 'card-account-mail' }
       ]"
       v-model="drawer"
     ></SideBar>
@@ -26,17 +26,22 @@
               { src: 'Hyunsik_2.jpg', alt: '3', id: '3' }
             ]"
             @setMain="setMain"
+            @right="setMain"
+            @left="setMain"
             :chosenImage="{ src: 'Hyunsik.jpg', alt: '1', id: '1' }"
           ></image-viewer>
         </v-col>
-        <v-col class="text-left">Hello darkness my old friend 1</v-col>
+        <v-col class="text-left"
+          >Hello darkness my old friend 1
+          <Addition />
+        </v-col>
       </v-row>
       <v-row align="left" justify="left">
         <v-col class="text-center">
           Hello darkness my old friend 1
           <v-tooltip left>Hello darkness my old friend</v-tooltip>
         </v-col>
-        <v-col class="text-left">Hello darkness my old friend 1</v-col>
+        <v-col class="text-left">Hello darkness my old friend 2</v-col>
       </v-row>
       <v-row align="center" justify="center">
         <v-col class="text-center">
@@ -53,11 +58,14 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 import SideBar from '@/components/SideBar/index.vue';
 import ImageViewer from '@/components/ImageViewer/index.vue';
+import Addition from '@/views/Home/Addition/index.vue';
+
 export default {
   name: 'Home',
   components: {
     SideBar,
-    ImageViewer
+    ImageViewer,
+    Addition
   },
   data: () => {
     return {

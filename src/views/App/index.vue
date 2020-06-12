@@ -1,36 +1,34 @@
 <template>
-  <v-app class="about">
-    <h1>This is an about page</h1>
-
-    <upper-bar
+  <v-app class="Online_CV">
+    <!-- <upper-bar
       :navigationItems="[
         { path: '/', name: 'firstname' },
         { path: '/about', name: 'secname' }
       ]"
       title="App"
-    ></upper-bar>
+    ></upper-bar> -->
 
     <v-content>
       <router-view />
     </v-content>
 
-    <v-footer color="indigo" app>
+    <!-- <v-footer color="indigo" app>
       <span class="white--text">&copy; 2020</span>
-    </v-footer>
+    </v-footer> -->
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import UpperBar from '@/components/UpperBar/index.vue'
+import Vue from 'vue';
+import UpperBar from '@/components/UpperBar/index.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
-    UpperBar
+    // UpperBar
   }
   // data: () => ({
   //   drawer: null
   // }),
-})
+});
 </script>

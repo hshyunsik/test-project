@@ -40,11 +40,11 @@ export default Vue.extend({
     }
   },
   computed: {
-    computedImage() {
+    computedImage(): ImageSrc {
       return this.chosenImage;
     },
     imgCoordinates() {
-      const image = document.getElementById(this.chosenImage.id);
+      const image = document.getElementById(this.computedImage.id);
       return (image as HTMLElement).getBoundingClientRect();
     }
   },
@@ -58,80 +58,6 @@ export default Vue.extend({
     toRight(): void {
       this.$emit('right');
     }
-    // getCursorPosition(e: Event): CursorPosition {
-    //   let x = 0,
-    //     y = 0;
-    //   e = e || window.event;
-    //   // get the x and y positions of the image:
-    //   const image = document.getElementById('id');
-    //   const imageCoordinates = (image as HTMLElement).getBoundingClientRect();
-
-    //   // calculate the cursor's x and y coordinates, relative to the image: https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageX
-    //   x = (e as MouseEvent).pageX - imageCoordinates.left;
-    //   y = (e as MouseEvent).pageY - imageCoordinates.top;
-
-    //   // consider any page scrolling: https://www.w3schools.com/jsref/prop_win_pagexoffset.asp
-    //   x = x - window.pageXOffset;
-    //   y = y - window.pageYOffset;
-    //   return { x, y };
-    // }
-    // moveLens(e: MouseEvent) {
-    //   // prevent any other actions that may occur when moving over the image:
-    //   e.preventDefault();
-
-    //   // get the cursor's x and y positions:
-    //   let pos = this.getCursorPosition(e);
-
-    //   // calculate the position of the lens:
-    //   let x = pos.x - e.getBoundingClientRect().offsetWidth / 2;
-    //   let y = pos.y - lens.offsetHeight / 2;
-    //   // prevent the lens from being positioned outside the image:
-    //   if (x > img.width - lens.offsetWidth) {
-    //     x = img.width - lens.offsetWidth;
-    //   }
-    //   if (x < 0) {
-    //     x = 0;
-    //   }
-    //   if (y > img.height - lens.offsetHeight) {
-    //     y = img.height - lens.offsetHeight;
-    //   }
-    //   if (y < 0) {
-    //     y = 0;
-    //   }
-    //   // set the position of the lens:
-    //   lens.style.left = x + 'px';
-    //   lens.style.top = y + 'px';
-    //   // display what the lens "sees":
-    //   result.style.backgroundPosition = '-' + x * cx + 'px -' + y * cy + 'px';
-    // },
-    // imageZoom(imgID: string, resultID: string) {
-    //   let img = document.getElementById(imgID) as HTMLImageElement;
-    //   let result = document.getElementById(resultID) as HTMLElement;
-
-    //   // create lens:
-    //   this.lens = document.createElement('DIV');
-    //   lens.setAttribute('class', 'img-zoom-lens');
-
-    //   // insert lens:
-    //   (img.parentElement as HTMLElement).insertBefore(lens, img);
-
-    //   // calculate the ratio between result DIV and lens:
-    //   let cx = result.offsetWidth / lens.offsetWidth;
-    //   let cy = result.offsetHeight / lens.offsetHeight;
-
-    //   // set background properties for the result DIV:
-    //   result.style.backgroundImage = "url('" + img.src + "')";
-    //   result.style.backgroundSize =
-    //     img.width * cx + 'px ' + img.height * cy + 'px';
-
-    //   // execute a function when someone moves the cursor over the image, or the lens:
-    //   lens.addEventListener('mousemove', this.moveLens);
-    //   img.addEventListener('mousemove', this.moveLens);
-
-    //   // and also for touch screens:
-    //   lens.addEventListener('touchmove', this.moveLens);
-    //   img.addEventListener('touchmove', this.moveLens);
-    // }
   }
 });
 </script>

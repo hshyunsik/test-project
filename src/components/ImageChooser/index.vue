@@ -41,19 +41,19 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { Image } from './types'
+import Vue from 'vue';
+import { Image } from './types';
 
 export default Vue.extend({
   name: 'ImageViewer',
   data: () => {
     return {
       main: '1'
-    }
+    };
   },
   props: {
     images: {
-      type: Array as () => Image[]
+      type: Array as () => Image[] // https://stackoverflow.com/questions/41139763/how-to-declare-a-fixed-length-array-in-typescript
     }
     // Later change this to focusImages OR use dropdowns OR add modal
     // images: {
@@ -63,10 +63,10 @@ export default Vue.extend({
   },
   computed: {
     test() {
-      return this.images
+      return this.images;
     },
     chosenImage() {
-      return this.images.find((image: Image) => image.id === this.main)
+      return this.images.find((image: Image) => image.id === this.main);
     }
   },
   methods: {
@@ -75,11 +75,11 @@ export default Vue.extend({
     // },
     // set @left and @right, as well as @mainLeft and @mainRight
     setMain(image: Image): void {
-      this.main = image.id
+      this.main = image.id;
       // this.$emit('setMain', image)
     }
   }
-})
+});
 </script>
 
 <style lang="scss" scoped>

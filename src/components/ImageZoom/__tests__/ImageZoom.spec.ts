@@ -40,7 +40,6 @@ describe('ImageZoom.vue', () => {
     const image = wrapper.find('.image--full');
     image.trigger('mouseenter');
     await wrapper.vm.$nextTick();
-    console.log(wrapper.html());
     const zoomImage = wrapper.find('.image_zoom_container');
     expect(zoomImage.exists()).toBeTruthy();
   });
