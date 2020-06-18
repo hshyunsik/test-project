@@ -1,18 +1,27 @@
 <template>
-  <div class="container--centrefocus">
-    <div class="item--big">
-      <ImageZoom :chosenImage="computedImage" />
+  <div>
+    <!-- <h1>{{ title }}</h1> -->
+    <div class="container--centrefocus">
+      <div class="item--big">
+        <ImageZoom :chosenImage="chosenImage" />
+      </div>
+      <div class="item--left" @click="setPrevious">
+        <v-btn icon>
+          <v-icon>mdi-chevron-left</v-icon>
+        </v-btn>
+      </div>
+      <div class="item--right" @click="setNext">
+        <v-btn icon><v-icon>mdi-chevron-right</v-icon></v-btn>
+      </div>
     </div>
-    <div class="item--left" @click="toLeft">
-      <v-btn icon>
-        <v-icon>mdi-chevron-left</v-icon>
-      </v-btn>
-    </div>
-    <div class="item--right" @click="toRight">
-      <v-btn icon><v-icon>mdi-chevron-right</v-icon></v-btn>
-    </div>
-    <div class="myResult">
-      <v-btn icon><v-icon>mdi-chevron-right</v-icon></v-btn>
+    <div>
+      <!-- <v-btn icon><v-icon>mdi-chevron-right</v-icon></v-btn> -->
+      <image-chooser
+        :images="images"
+        :chosenId="chosenImage.id"
+        @setChosenId="setChosenId"
+        class="margin--top"
+      />
     </div>
   </div>
 </template>
@@ -21,42 +30,35 @@
 import Vue from 'vue';
 import { ImageSrc } from './types';
 import ImageZoom from '@/components/ImageZoom/index.vue';
+import ImageChooser from '@/components/ImageChooser/index.vue';
 
 export default Vue.extend({
   name: 'ImageViewer',
   components: {
-    ImageZoom
-  },
-  data: () => {
-    return {
-      main: '1',
-      lens: HTMLElement
-    };
+    ImageZoom,
+    ImageChooser
   },
   props: {
     chosenImage: {
       type: Object as () => ImageSrc,
       required: true
-    }
-  },
-  computed: {
-    computedImage(): ImageSrc {
-      return this.chosenImage;
     },
-    imgCoordinates() {
-      const image = document.getElementById(this.computedImage.id);
-      return (image as HTMLElement).getBoundingClientRect();
+    images: {
+      type: Array as () => ImageSrc[] // https://stackoverflow.com/questions/41139763/how-to-declare-a-fixed-length-array-in-typescript
+    },
+    title: {
+      type: String
     }
-  },
-  mounted() {
-    // this.;
   },
   methods: {
-    toLeft(): void {
-      this.$emit('left');
+    setNext(): void {
+      this.$emit('setNext');
     },
-    toRight(): void {
-      this.$emit('right');
+    setPrevious(): void {
+      this.$emit('setPrevious');
+    },
+    setChosenId(id: string): void {
+      this.$emit('setChosenId', id);
     }
   }
 });
@@ -80,24 +82,8 @@ export default Vue.extend({
   grid-column: -2/-1;
   grid-row: 1/2;
 }
-.image--full {
-  width: 100%;
-  height: 100%;
-}
-.image_zoom_container {
-  position: relative;
-}
-.img-zoom-lens {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  /*set the size of the lens:*/
-  width: 40px;
-  height: 40px;
-}
-.img-zoom-result {
-  border: 1px solid #d4d4d4;
-  /*set the size of the result div:*/
-  width: 300px;
-  height: 300px;
+.item--bottom {
+  grid-column: 1/ 4;
+  grid-row: 2/3;
 }
 </style>

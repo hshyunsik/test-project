@@ -1,10 +1,12 @@
 <template>
   <div class="container--full">
     <img
-      id="id"
-      class="image--full"
+      id="image"
       :src="require(`@/assets/${computedImage.src}`)"
       :alt="computedImage.alt"
+      class="image--full"
+      width="185"
+      height="235"
     />
     <div
       :class="{ no_display: !showDiv }"
@@ -15,11 +17,7 @@
       :class="{ no_display: !showDiv }"
       class="image_zoom_result"
       id="result"
-    >
-      Result
-    </div>
-    <!-- <div class="image_zoom_lens" id="lens">Lens</div> -->
-    <!-- <div class="image_zoom_result" id="result">Result</div> -->
+    ></div>
   </div>
 </template>
 
@@ -31,8 +29,7 @@ export default Vue.extend({
   name: 'ImageZoom',
   data: () => {
     return {
-      showDiv: false,
-      lens: HTMLElement
+      showDiv: false
     };
   },
   props: {
@@ -47,31 +44,29 @@ export default Vue.extend({
     }
   },
   mounted() {
-    const img = document.getElementById('id') as HTMLImageElement;
+    const img = document.getElementById('image') as HTMLImageElement;
     const lens = document.getElementById('lens') as HTMLDivElement;
+
     img.addEventListener('mousemove', this.imageZoom);
     img.addEventListener('touchmove', this.imageZoom);
     lens.addEventListener('mousemove', this.imageZoom);
     lens.addEventListener('touchmove', this.imageZoom);
-    img.addEventListener('mouseleave', this.changeDiv);
-    lens.addEventListener('mouseleave', this.changeDiv);
+    lens.addEventListener('mouseleave', this.removeLens);
   },
   methods: {
-    // Add mousemove while mouseenter
-    // Remove mousemove while mouseleave
-    changeDiv(): void {
-      this.showDiv = !this.showDiv;
-      // if mouseleave -> remove event listener mousemove
-      // if mouseenter -> add event listener mousemove
+    changeDiv(show: boolean): void {
+      this.showDiv = show;
+    },
+    removeLens(): void {
+      this.changeDiv(false);
     },
     imageZoom(e: Event) {
-      // https://www.w3schools.com/howto/howto_js_image_zoom.asp
-
       if (!this.showDiv) {
-        this.changeDiv();
+        this.changeDiv(true);
       }
 
-      const img = document.getElementById('id') as HTMLImageElement;
+      // https://www.w3schools.com/howto/howto_js_image_zoom.asp
+      const img = document.getElementById('image') as HTMLImageElement;
       const lens = document.getElementById('lens') as HTMLDivElement;
       const result = document.getElementById('result') as HTMLDivElement;
 
@@ -79,33 +74,21 @@ export default Vue.extend({
       const compareX = result.offsetWidth / lens.offsetWidth;
       const compareY = result.offsetHeight / lens.offsetHeight;
 
-      console.log('compare');
-      console.log(compareX);
-
-      // result.style.minHeight = '' + img.offsetHeight + ' px';
-      // ================== Improve another day ==================== //
-      // set background properties for the result DIV:
       result.style.backgroundImage = "url('" + img.src + "')";
       result.style.backgroundSize =
-        img.width * compareX + ' px ' + img.height * compareY + 'px';
+        '' + img.width * compareX + 'px ' + img.height * compareY + 'px';
 
-      console.log('img.height');
-      console.log(img.height);
-      console.log(result.offsetHeight);
       // prevent any other actions that may occur when moving over the image:
       e.preventDefault();
 
       // Get cursor position w/in image frame
       const pos = this.getCursorPosition(e);
-      console.log(pos);
-      console.log(img.offsetHeight);
-      console.log(result.offsetHeight);
+
       // Get offsetLeft and offsetTop lens
       let x = pos.x - lens.offsetWidth / 2 + img.offsetLeft;
       let y = pos.y - lens.offsetHeight / 2 + img.offsetTop;
-      console.log(img.height);
-      console.log(lens.offsetHeight);
-      console.log(y);
+      const relativeLensPos = { x, y };
+
       // Prevent lens from being positioned outside image
       if (x > img.width - lens.offsetWidth) {
         x = img.width - lens.offsetWidth;
@@ -124,14 +107,14 @@ export default Vue.extend({
       lens.style.top = y + 'px';
       // display what the lens "sees"
       result.style.backgroundPosition =
-        '-' + (x * compareX) / 2 + 'px -' + (y * compareY) / 2 + 'px';
+        '-' + x * compareX + 'px -' + y * compareY + 'px';
     },
     getCursorPosition(e: Event): CursorPosition {
       let x = 0;
       let y = 0;
       e = e || window.event;
       // get the x and y positions of the image:
-      const image = document.getElementById('id');
+      const image = document.getElementById('image');
       const imageCoordinates = (image as HTMLElement).getBoundingClientRect();
 
       // calculate the cursor's x and y coordinates, relative to the image: https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageX
@@ -153,10 +136,31 @@ export default Vue.extend({
   width: 100%;
   height: 100%;
 }
-.image--full {
-  width: 100%;
-  height: 100%;
+
+// @media only screen and (max-width : 320px) {
+// .image--full {
+//   width: 100%;
+//   height: 100%;
+// }
+// }
+// @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+//   .image--full {
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
+@media only screen and (min-device-width: 481px) {
+  .image--full {
+    width: 100%;
+    height: 100%;
+  }
 }
+// @media (max-device-width: 768/1024) {
+//   .image--full {
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
 
 .image_zoom_result {
   position: absolute;
@@ -171,16 +175,9 @@ export default Vue.extend({
   position: absolute;
   border: 1px solid #d4d4d4;
   /*set the size of the lens:*/
-  width: 2rem;
-  height: 2rem;
-}
-.img-zoom-result {
-  border: 1px solid #d4d4d4;
-  /*set the size of the result div:*/
-  width: 300px;
-  height: 300px;
-}
-.no_display {
-  display: none;
+  min-width: 32px;
+  min-height: 32px;
+  width: 20%;
+  height: 20%;
 }
 </style>

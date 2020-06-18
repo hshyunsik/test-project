@@ -21,7 +21,7 @@ describe('ImageZoom.vue', () => {
       },
       propsData: {
         chosenImage: {
-          src: '@/components/assets/Hyunsik.jpg',
+          src: '@/components/assets/Hyunsik_0.jpg',
           id: 'testid',
           alt: 'test'
         }
@@ -32,24 +32,40 @@ describe('ImageZoom.vue', () => {
     wrapper.destroy();
   });
 
-  it('image id is photo id in passed prop', async () => {
-    const imageContainer = wrapper.find('#id');
+  it('Src image is displayed', async () => {
+    const imageContainer = wrapper.find('#image');
     expect(imageContainer.exists()).toBeTruthy();
   });
-  it('Creates a div when mouseover image', async () => {
-    const image = wrapper.find('.image--full');
-    image.trigger('mouseenter');
+  it('Lens shows when touchmove image', async () => {
+    const lensImage = wrapper.find('.image_zoom_lens');
+    expect(lensImage.attributes().class).toBe('image_zoom_lens no_display');
+    wrapper.find('.image--full').trigger('mousemove');
     await wrapper.vm.$nextTick();
-    const zoomImage = wrapper.find('.image_zoom_container');
-    expect(zoomImage.exists()).toBeTruthy();
+    expect(lensImage.attributes().class).toBe('image_zoom_lens');
   });
-  it('Zoom div contains im', async () => {
-    const image = wrapper.find('.image--full');
+  it('Lens disappears when leaving lens with mouse', async () => {
+    wrapper.setData({ showDiv: true });
+    await wrapper.vm.$nextTick();
+    const lensImage = wrapper.find('.image_zoom_lens');
+    expect(lensImage.attributes().class).toBe('image_zoom_lens');
+    lensImage.trigger('mouseleave');
+    await wrapper.vm.$nextTick();
+    expect(lensImage.attributes().class).toBe('image_zoom_lens no_display');
   });
-  it('Creates a div when mouseover image', async () => {
-    const image = wrapper.find('.image--full');
-  });
-  it('Creates a div when mouseover image', async () => {
-    const image = wrapper.find('.image--full');
+  it('BackgroundPosition of ZoomResult is in proportion to lens position', async () => {
+    wrapper.setData({ showDiv: true });
+    await wrapper.vm.$nextTick();
+
+    // set lens Width/Height
+    const lensImage = wrapper.find('.image_zoom_lens');
+
+    // set result width/height
+
+    // mousemove with coordinates {0,0}
+
+    // mousemove with coordinates {300, 400}
+
+    wrapper.find('#lens').trigger('mousemove', {});
+    await wrapper.vm.$nextTick();
   });
 });

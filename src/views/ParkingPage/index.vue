@@ -1,5 +1,6 @@
 <template>
   <v-app id="inspire">
+    <SideBar :menuItems="[]" v-model="drawer" />
     <!-- // https://prettier.io/docs/en/integrating-with-linters.html -->
     <v-container class="fill-height" fluid>
       <v-row align="center" justify="center">
@@ -35,7 +36,7 @@
       </v-row>
       <v-row align="center" justify="center" v-if="showsCV">
         <v-col class="text-center">
-          <pdf src="../../static/Hyunsik_CV.pdf"></pdf>
+          <pdf :src="`./static/Hyunsik_CV.pdf`"></pdf>
         </v-col>
       </v-row>
     </v-container>
@@ -44,21 +45,33 @@
 
 <script lang="ts">
 import pdf from 'vue-pdf';
+import SideBar from '@/components/SideBar/index.vue';
 
 export default {
   name: 'ParkingPage',
   components: {
-    pdf
+    pdf,
+    SideBar
   },
   data: () => {
     return {
-      showsCV: false
+      showsCV: false,
+      publicPath: './'
     };
   },
-  computed: {},
+  computed: {
+    drawer: {
+      get(): string {
+        return (this as any).$store.state.drawer;
+      },
+      set(value: boolean) {
+        (this as any).$store.dispatch('setDrawer', value);
+      }
+    }
+  },
   methods: {
-    showCV() {
-      this.showsCV = true;
+    showCV(): void {
+      (this as any).showsCV = true;
     }
   }
 };

@@ -2,51 +2,97 @@
   <v-app id="inspire">
     <SideBar
       :menuItems="[
-        { path: '/', name: 'firstItem', icon: 'home' },
-        { path: '/about', name: 'secItem', icon: 'card-account-mail' }
+        {
+          path: '/portfolio',
+          sectionId: 'section_1',
+          name: 'firstItem',
+          icon: 'home'
+        },
+        {
+          path: '/portfolio',
+          sectionId: 'section_2',
+          name: 'secondItem',
+          icon: 'home'
+        }
       ]"
       v-model="drawer"
-    ></SideBar>
+    />
+    <!-- <SideBar
+      :menuItems="[
+        { path: '/about', name: 'secItem', icon: 'card-account-mail' },
+      ]"
+      v-model="drawer"
+    /> -->
     <!-- // https://prettier.io/docs/en/integrating-with-linters.html -->
     <v-container fluid>
-      <v-row align="left" justify="left">
+      <v-row
+        align="left"
+        justify="left"
+        class="container--max container_shadow padding--bottom"
+        id="section_1"
+      >
         <v-col class="text-center">
-          <!-- <v-img
-            alt="Vuetify Logo"
-            class="shrink mr-2 main_image"
-            contain
-            :src="require(`@/assets/${src}`)"
-            transition="scale-transition"
-            width="300"
-          /> -->
           <image-viewer
-            :images="[
-              { src: 'Hyunsik.jpg', alt: '1', id: '1' },
-              { src: 'Hyunsik_1.jpg', alt: '2', id: '2' },
-              { src: 'Hyunsik_2.jpg', alt: '3', id: '3' }
-            ]"
-            @setMain="setMain"
-            @right="setMain"
-            @left="setMain"
-            :chosenImage="{ src: 'Hyunsik.jpg', alt: '1', id: '1' }"
+            :images="images"
+            @setChosenId="setChosenId"
+            @setPrevious="setPrevious"
+            @setNext="setNext"
+            :chosenImage="chosenImage"
+            :title="name"
           ></image-viewer>
         </v-col>
-        <v-col class="text-left"
-          >Hello darkness my old friend 1
-          <Addition />
+        <v-col class="text-left">
+          <Addition :name="name" />
         </v-col>
       </v-row>
-      <v-row align="left" justify="left">
-        <v-col class="text-center">
-          Hello darkness my old friend 1
+      <div
+        class="container--scrolldown"
+        @click="scrollDown('test', 'UpperBar')"
+      >
+        Scroll to next section
+      </div>
+
+      <!-- NEXT ROW -->
+      <v-row
+        align="left"
+        justify="left"
+        class="container--max parallax"
+        id="section_2"
+      >
+        <v-col class="text-center" id="test">
+          Section 2!!!!!!!
           <v-tooltip left>Hello darkness my old friend</v-tooltip>
         </v-col>
-        <v-col class="text-left">Hello darkness my old friend 2</v-col>
+        <v-col class="text-left">Section 2!!!!!!!</v-col>
       </v-row>
-      <v-row align="center" justify="center">
+      <v-row
+        align="center"
+        justify="center"
+        class="container--max"
+        id="section_3"
+      >
         <v-col class="text-center">
-          Hello darkness my old friend 2
-          <v-tooltip left>Hello darkness my old friend</v-tooltip>
+          Section 3!!!!!!!
+        </v-col>
+      </v-row>
+      <v-row
+        align="center"
+        justify="center"
+        class="container--max parallax"
+        id="section_4"
+      >
+        <v-col class="text-center">
+          Section 4!!!!!!!
+        </v-col>
+      </v-row>
+      <v-row
+        align="center"
+        justify="center"
+        class="container--max"
+        id="section_5"
+      >
+        <v-col class="text-center">
+          <google-map />
         </v-col>
       </v-row>
     </v-container>
@@ -58,36 +104,89 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 import SideBar from '@/components/SideBar/index.vue';
 import ImageViewer from '@/components/ImageViewer/index.vue';
+import GoogleMap from '@/components/GoogleMap/index.vue';
 import Addition from '@/views/Home/Addition/index.vue';
+
+import { ImageSrc } from '@/components/ImageViewer/types.ts';
 
 export default {
   name: 'Home',
   components: {
     SideBar,
     ImageViewer,
-    Addition
+    Addition,
+    GoogleMap
   },
   data: () => {
     return {
-      src: 'Hyunsik.jpg',
-      drawer: true
+      chosenId: '1',
+      name: 'Hyunsik Byun'
+      // drawer: true
     };
   },
   computed: {
-    // drawer: {
-    //   get(): string {
-    //     return this.$store.state.drawer;
-    //   },
-    //   set(value: boolean) {
-    //     console.log('set');
-    //     this.$store.dispatch('setDrawer', value);
-    //   }
-    // }
+    drawer: {
+      get(): string {
+        return (this as any).$store.state.drawer;
+      },
+      set(value: boolean) {
+        (this as any).$store.dispatch('setDrawer', value);
+      }
+    },
+    images() {
+      return (this as any).$store.state.images;
+    },
+    chosenImage(): ImageSrc {
+      return (this as any).images.find(
+        (image: ImageSrc) => image.id === (this as any).chosenId
+      );
+    }
+  },
+  mounted() {
+    (this as any).setBackground(
+      'section_2',
+      'url(../../img/Hyunsik_1.e398d4be.jpg)'
+    );
   },
   methods: {
-    // setMain(image: Image) {
-    //   this.src = image.src
+    setChosenId(id: string) {
+      (this as any).chosenId = id;
+    },
+    setNext() {
+      const intId = parseInt((this as any).chosenId);
+      const newId = ((intId + 1) % 3).toString();
+      this.setChosenId(newId);
+    },
+    setPrevious() {
+      const intId = parseInt((this as any).chosenId);
+      const newId = ((intId + 2) % 3).toString();
+      this.setChosenId(newId);
+    },
+    // scrollDown() {
+    //   document.getElementById;
     // }
+    scrollDown(elementId: string, navBarId: '') {
+      const y = (document.getElementById(
+        elementId
+      ) as HTMLElement).getBoundingClientRect().top;
+      const navBar = document.getElementById(navBarId);
+      if (document.documentElement.clientWidth >= 768 && navBar) {
+        const navBarY = navBar.getBoundingClientRect().height;
+        window.scrollBy({
+          top: y - navBarY,
+          behavior: 'smooth'
+        });
+      } else {
+        window.scrollBy({
+          top: y,
+          behavior: 'smooth'
+        });
+      }
+    },
+    setBackground(elementId: string, src: string) {
+      const element = document.getElementById(elementId) as HTMLElement;
+      element.style.backgroundImage = src;
+    }
   }
 };
 </script>
@@ -102,5 +201,25 @@ export default {
 .main_image {
   width: 30%;
   height: 40%;
+}
+.container_shadow {
+  box-shadow: 0px 4px darkgrey;
+}
+.container--scrolldown {
+  text-align: center;
+  background-color: white;
+  width: 200px;
+  margin-left: calc(50% - 100px);
+  margin-right: calc(50% - 100px);
+
+  border-bottom: 4px solid darkgrey;
+  border-left: 4px solid darkgrey;
+  border-bottom-right-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  border-right: 4px solid darkgrey;
+  cursor: pointer;
+  height: 2rem;
+  z-index: 1;
+  position: absolute;
 }
 </style>

@@ -2,7 +2,11 @@
   <v-navigation-drawer :value="value" app @input="setValue">
     <v-list dense>
       <div v-for="item in test" :key="item.name">
-        <v-list-item class="item" link @click="routeTo(item.path)">
+        <v-list-item
+          class="item"
+          link
+          @click="routeToSection(item.path, item.sectionId)"
+        >
           <v-list-item-action>
             <v-icon>mdi-{{ item.icon }}</v-icon>
           </v-list-item-action>
@@ -42,6 +46,9 @@ export default Vue.extend({
   methods: {
     routeTo(path: string) {
       this.$router.push(path);
+    },
+    routeToSection(basePath: string, sectionId: string) {
+      this.$router.push({ path: `${basePath}#${sectionId}` });
     },
     setValue(value: boolean) {
       this.$emit('input', value);
