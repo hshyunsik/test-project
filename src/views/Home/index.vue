@@ -116,7 +116,6 @@ import ProjectDisplay from '@/views/Home/ProjectDisplay/index.vue';
 import Contact from '@/views/Home/Contact/index.vue';
 
 import { ImageSrc } from '@/store/types.ts';
-// eslint-disable-next-line
 import * as backgroundMe from '../../assets/Background_Me.jpg';
 import * as backgroundInterests from '../../assets/Background_Interests3.jpg';
 // https://survivejs.com/webpack/loading/images/
