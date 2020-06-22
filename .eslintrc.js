@@ -27,5 +27,5 @@ module.exports = {
       }
     }
   ],
-  ignorePatterns: ['**/__tests__/*.spec.ts']
+  ignorePatterns: ['**/__tests__/*.spec.ts', '**/webpack.config.js']
 };
