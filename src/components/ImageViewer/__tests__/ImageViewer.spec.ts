@@ -1,7 +1,6 @@
 import ImageViewer from '../index.vue';
 import { mount, Wrapper } from '@vue/test-utils';
 import Vuetify from 'vuetify';
-import { ImageSrc } from '../types';
 
 describe('ImageViewer.vue', () => {
   let wrapper: Wrapper<any>;

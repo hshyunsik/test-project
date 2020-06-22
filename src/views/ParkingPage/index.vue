@@ -1,8 +1,9 @@
 <template>
   <v-app id="inspire">
-    <SideBar :menuItems="[]" v-model="drawer" />
+    <SideBar v-model="drawer" />
     <!-- // https://prettier.io/docs/en/integrating-with-linters.html -->
-    <v-container class="fill-height" fluid>
+    <v-container fluid>
+      <!-- <v-container class="fill-height" fluid> -->
       <v-row align="center" justify="center">
         <v-col class="text-center">
           <v-header class="text-center" style="font-size: 20px !important">
@@ -10,9 +11,9 @@
           </v-header>
         </v-col>
       </v-row>
-      <v-row align="left" justify="left">
+      <!-- <v-row align="left" justify="left">
         <v-col class="text-center">
-          Track my progress in my github project:
+          Track my progress in github:
           <v-tooltip left>
             <template v-slot:activator="{ on }">
               <v-btn
@@ -38,7 +39,7 @@
         <v-col class="text-center">
           <pdf :src="`./static/Hyunsik_CV.pdf`"></pdf>
         </v-col>
-      </v-row>
+      </v-row> -->
     </v-container>
   </v-app>
 </template>
@@ -50,7 +51,7 @@ import SideBar from '@/components/SideBar/index.vue';
 export default {
   name: 'ParkingPage',
   components: {
-    pdf,
+    // pdf,
     SideBar
   },
   data: () => {

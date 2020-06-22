@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { ImageSrc } from './types';
+import { ImageSrc } from '@/store/types';
 import ImageZoom from '@/components/ImageZoom/index.vue';
 import ImageChooser from '@/components/ImageChooser/index.vue';
 
@@ -81,9 +81,5 @@ export default Vue.extend({
 .item--right {
   grid-column: -2/-1;
   grid-row: 1/2;
-}
-.item--bottom {
-  grid-column: 1/ 4;
-  grid-row: 2/3;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer :value="value" app @input="setValue">
+  <v-navigation-drawer :value="value" app @input="setValue" :right="right">
     <v-list dense>
       <div v-for="item in test" :key="item.name">
         <v-list-item
@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { MenuItem } from './types';
+import { MenuItem } from '@/store/types';
 export default Vue.extend({
   name: 'SideBar',
   components: {},
@@ -36,6 +36,9 @@ export default Vue.extend({
     },
     value: {
       type: Boolean
+    },
+    right: {
+      type: Boolean
     }
   },
   computed: {
@@ -47,8 +50,13 @@ export default Vue.extend({
     routeTo(path: string) {
       this.$router.push(path);
     },
-    routeToSection(basePath: string, sectionId: string) {
-      this.$router.push({ path: `${basePath}#${sectionId}` });
+    routeToSection(basePath: string, sectionId?: string) {
+      if (!sectionId) {
+        this.routeTo(basePath);
+      } else {
+        const path = `${basePath}#${sectionId}`;
+        this.$router.push({ path: path });
+      }
     },
     setValue(value: boolean) {
       this.$emit('input', value);

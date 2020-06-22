@@ -44,7 +44,7 @@ describe('SideBar.vue', () => {
     const firstItem = wrapper.find('.item');
     expect(firstItem.html()).toContain('First');
   });
-  it('Clicking on first item text pushes first prop link', async () => {
+  it('Clicking on second itemLink pushes first prop link', async () => {
     wrapper.setProps({
       menuItems: [
         { name: 'First', path: '/' },
@@ -55,6 +55,18 @@ describe('SideBar.vue', () => {
     const firstItem = wrapper.findAll('.item').at(1);
     firstItem.trigger('click');
     expect(wrapper.vm.$route.path).toBe('/second');
+  });
+  it('Clicking on second  itemLink with sectionId pushes first prop link', async () => {
+    wrapper.setProps({
+      menuItems: [
+        { name: 'First', path: '/' },
+        { name: 'Second', path: '/second', sectionId: 'section' }
+      ]
+    });
+    await wrapper.vm.$nextTick();
+    const firstItem = wrapper.findAll('.item').at(1);
+    firstItem.trigger('click');
+    expect(wrapper.vm.$route.hash).toBe('#section');
   });
   it('Bar appears only if prop drawer is not null', async () => {
     wrapper.setProps({

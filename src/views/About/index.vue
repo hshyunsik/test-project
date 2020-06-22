@@ -1,6 +1,6 @@
 <template>
   <v-app class="about">
-    <SideBar :menuItems="[]" v-model="drawer" />
+    <SideBar v-model="drawer" />
     <v-content>
       <v-container class="fill-height" fluid>
         <v-row align="left" justify="left">

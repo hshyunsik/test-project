@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div>
+    <!-- <div>
       <gmap-autocomplete @place_changed="setPlace"> </gmap-autocomplete>
       <v-btn @click="addMarker" color="#e0e0e0">Add</v-btn>
-    </div>
+    </div> -->
     <gmap-map :center="center" :zoom="12" style="width:100%;  height: 400px;">
       <gmap-marker
         :key="index"

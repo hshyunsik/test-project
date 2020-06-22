@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h1 class="header margin--top">{{ name }}</h1>
+    <div>
+      <h1 class="align--center padding--bottom margin--top">
+        {{ name }}
+      </h1>
+    </div>
     <div class="container__rows--right margin--top">
       <v-btn primary text color="red" @click="addToFavorites">
         <v-icon>mdi-heart</v-icon>
@@ -26,7 +30,7 @@
     </div>
     <div class="margin--top">
       <ul>
-        <li><b>Name:</b> Hyunsik Byun</li>
+        <!-- <li><b>Name:</b> Hyunsik Byun</li> -->
         <li><b>Birth Place:</b> The Hague</li>
         <li><b>Birth Date:</b> 28 September 1995</li>
         <li><b>Gender:</b> Male</li>
@@ -35,9 +39,9 @@
         <li><b>Driving License:</b> B</li>
       </ul>
     </div>
-    <div class="margin--top" style="position: relative; top: 1000px">
+    <!-- <div class="margin--top" style="position: relative; top: 1000px">
       Learn WebPack, Cross-browser testing, Selenium/Cypress??
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -113,8 +117,5 @@ export default {
   justify-items: start;
   align-content: center;
   justify-content: center;
-}
-.header {
-  text-align: center;
 }
 </style>

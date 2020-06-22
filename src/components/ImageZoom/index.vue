@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { ImageSrc, CursorPosition } from '../ImageViewer/types';
+import { ImageSrc } from '@/store/types';
 
 export default Vue.extend({
   name: 'ImageZoom',
@@ -46,7 +46,9 @@ export default Vue.extend({
   mounted() {
     const img = document.getElementById('image') as HTMLImageElement;
     const lens = document.getElementById('lens') as HTMLDivElement;
-
+    if (document.documentElement.clientWidth < 768) {
+      return;
+    }
     img.addEventListener('mousemove', this.imageZoom);
     img.addEventListener('touchmove', this.imageZoom);
     lens.addEventListener('mousemove', this.imageZoom);
@@ -109,7 +111,7 @@ export default Vue.extend({
       result.style.backgroundPosition =
         '-' + x * compareX + 'px -' + y * compareY + 'px';
     },
-    getCursorPosition(e: Event): CursorPosition {
+    getCursorPosition(e: Event): { x: number; y: number } {
       let x = 0;
       let y = 0;
       e = e || window.event;

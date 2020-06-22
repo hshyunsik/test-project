@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { ImageSrc } from '@/components/ImageViewer/types.ts';
+import { ImageSrc } from '@/store/types';
 
 export default Vue.extend({
   name: 'Example',
