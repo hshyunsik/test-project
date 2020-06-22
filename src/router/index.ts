@@ -6,13 +6,18 @@ import ParkingPage from '../views/ParkingPage/index.vue';
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
+  // {
+  //   path: '/',
+  //   name: 'ParkingPage',
+  //   component: ParkingPage
+  // },
+  // {
+  //   path: '/portfolio',
+  //   name: 'Home',
+  //   component: Home
+  // },
   {
     path: '/',
-    name: 'ParkingPage',
-    component: ParkingPage
-  },
-  {
-    path: '/portfolio',
     name: 'Home',
     component: Home
   },

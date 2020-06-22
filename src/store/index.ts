@@ -13,37 +13,37 @@ export default new Vuex.Store({
     ],
     menuItems: [
       {
-        path: '/portfolio',
+        path: '/',
         sectionId: 'section_1',
         name: 'Home',
         icon: 'home'
       },
       {
-        path: '/portfolio',
+        path: '/',
         sectionId: 'section_2',
         name: 'Personalia',
         icon: 'home'
       },
       {
-        path: '/portfolio',
+        path: '/',
         sectionId: 'section_3',
         name: 'My Story',
         icon: 'home'
       },
       {
-        path: '/portfolio',
+        path: '/',
         sectionId: 'section_4',
         name: 'My Stack',
         icon: 'home'
       },
       {
-        path: '/portfolio',
+        path: '/',
         sectionId: 'section_5',
         name: 'My Projects',
         icon: 'home'
       },
       {
-        path: '/portfolio',
+        path: '/',
         sectionId: 'section_6',
         name: 'Contact',
         icon: 'home'
