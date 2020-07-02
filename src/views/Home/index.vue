@@ -149,13 +149,11 @@ export default Vue.extend({
         this.$store.dispatch('setDrawer', value);
       }
     },
-    images(): ImageSrc {
-      return this.$store.state.images;
+    images(): Array<ImageSrc> {
+      return this.$store.state.images as Array<ImageSrc>;
     },
-    chosenImage(): ImageSrc {
-      return this.$props.images.find(
-        (image: ImageSrc) => image.id === this.chosenId
-      );
+    chosenImage(): ImageSrc | undefined {
+      return this.images.find((image: ImageSrc) => image.id === this.chosenId);
     }
   },
   mounted() {
