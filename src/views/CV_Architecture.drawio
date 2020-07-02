@@ -1,0 +1,76 @@
+<mxfile modified="2020-05-30T09:52:18.406Z" host="" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.44.2 Chrome/78.0.3904.130 Electron/7.1.11 Safari/537.36" etag="TFL--paMcjjgpRGtDH8L" version="13.1.3" pages="3">
+    <diagram id="7wW8mSjd4PavW444yMws" name="Overview">
+        <mxGraphModel dx="1075" dy="304" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="6J1a0-zwYKNaH-MxEFyg-5" value="Apache Tomcat" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=bottom;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="510" height="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="7G7pxuymdKo25Dl-VwHD-1" value="&lt;font style=&quot;font-size: 9px&quot;&gt;Upper&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="80" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <UserObject label="&lt;font style=&quot;font-size: 9px&quot;&gt;Content&lt;/font&gt;" link="data:page/id,xM97Gvd1AH-JdFbZ1e_3" id="7G7pxuymdKo25Dl-VwHD-3">
+                    <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" parent="1" vertex="1">
+                        <mxGeometry x="200" y="160" width="320" height="320" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="oiIIBqs7Vp73QNYq02dh" name="UpperBar">
+        <mxGraphModel dx="1075" dy="304" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="qaoWNdHM04_2JgOrEnP5-0"/>
+                <mxCell id="qaoWNdHM04_2JgOrEnP5-1" parent="qaoWNdHM04_2JgOrEnP5-0"/>
+                <mxCell id="Gt089xKDLf5kBcOCRQUu-0" value="Apache Tomcat" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=bottom;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" vertex="1" parent="qaoWNdHM04_2JgOrEnP5-1">
+                    <mxGeometry x="40" y="40" width="760" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="Gt089xKDLf5kBcOCRQUu-1" value="&lt;font size=&quot;1&quot;&gt;Menu&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" vertex="1" parent="qaoWNdHM04_2JgOrEnP5-1">
+                    <mxGeometry x="80" y="80" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="Gt089xKDLf5kBcOCRQUu-2" value="&lt;font style=&quot;font-size: 9px&quot;&gt;Naam&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" vertex="1" parent="qaoWNdHM04_2JgOrEnP5-1">
+                    <mxGeometry x="200" y="80" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="Gt089xKDLf5kBcOCRQUu-3" value="&lt;font style=&quot;font-size: 9px&quot;&gt;Item1&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" vertex="1" parent="qaoWNdHM04_2JgOrEnP5-1">
+                    <mxGeometry x="320" y="80" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="Gt089xKDLf5kBcOCRQUu-4" value="&lt;font style=&quot;font-size: 9px&quot;&gt;Item2&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" vertex="1" parent="qaoWNdHM04_2JgOrEnP5-1">
+                    <mxGeometry x="440" y="80" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="Gt089xKDLf5kBcOCRQUu-5" value="&lt;font size=&quot;1&quot;&gt;Item3&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" vertex="1" parent="qaoWNdHM04_2JgOrEnP5-1">
+                    <mxGeometry x="560" y="80" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="Gt089xKDLf5kBcOCRQUu-6" value="&lt;font style=&quot;font-size: 9px&quot;&gt;Source Code&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" vertex="1" parent="qaoWNdHM04_2JgOrEnP5-1">
+                    <mxGeometry x="680" y="80" width="80" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="SideBar" id="UgkiMwzPus4eble_7AmW">
+        <mxGraphModel dx="1075" dy="304" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="3_iNaQjt6AUfp_OzfYIz-0"/>
+                <mxCell id="3_iNaQjt6AUfp_OzfYIz-1" parent="3_iNaQjt6AUfp_OzfYIz-0"/>
+                <mxCell id="3_iNaQjt6AUfp_OzfYIz-2" value="Apache Tomcat" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=bottom;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" vertex="1" parent="3_iNaQjt6AUfp_OzfYIz-1">
+                    <mxGeometry x="40" y="40" width="160" height="670" as="geometry"/>
+                </mxCell>
+                <mxCell id="3_iNaQjt6AUfp_OzfYIz-3" value="&lt;font style=&quot;font-size: 9px&quot;&gt;Home&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" vertex="1" parent="3_iNaQjt6AUfp_OzfYIz-1">
+                    <mxGeometry x="80" y="80" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3_iNaQjt6AUfp_OzfYIz-4" value="&lt;font style=&quot;font-size: 9px&quot;&gt;CV&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;direction=south;" vertex="1" parent="3_iNaQjt6AUfp_OzfYIz-1">
+                    <mxGeometry x="80" y="200" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3_iNaQjt6AUfp_OzfYIz-5" value="&lt;font style=&quot;font-size: 9px&quot;&gt;Projecten&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" vertex="1" parent="3_iNaQjt6AUfp_OzfYIz-1">
+                    <mxGeometry x="80" y="320" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3_iNaQjt6AUfp_OzfYIz-6" value="&lt;font style=&quot;font-size: 9px&quot;&gt;Aanmelden (registratie toestaan)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" vertex="1" parent="3_iNaQjt6AUfp_OzfYIz-1">
+                    <mxGeometry x="80" y="440" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3_iNaQjt6AUfp_OzfYIz-8" value="&lt;font style=&quot;font-size: 9px&quot;&gt;Winkelmand (????)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" vertex="1" parent="3_iNaQjt6AUfp_OzfYIz-1">
+                    <mxGeometry x="80" y="560" width="80" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

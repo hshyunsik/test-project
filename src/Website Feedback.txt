@@ -1,0 +1,19 @@
+Mieke
+	1. Betere contrast tussen mijn secties
+	2. Vakje om mijn personalia
+	3. Betere margins
+	4. Legenda bij de skills
+	5. Rechtermenu
+	6. Beter statisch dan parallax als niet congruent
+	7. Linkje naar het project toe (in de image modal)
+(shadow in de image)
+	8. Label bij marker Google Maps
+
+Angel
+	1. Zoom weghalen van de fotos
+	2. 1 foto is genoeg
+	3. My Story is moeilijk leesbaar
+	4. my Projects is best moeilijk te begrijpen hoe je er doorheen moet. 
+	Bouw het zoals je fotos nu
+	5. Probeer meer projecten erin te zetten, hoe klein dan ook
+	6. Google maps mag weg, geen toegevoegde waarde
