@@ -15,8 +15,7 @@
         <p>
           My name is Hyunsik Byun, an ambitious 24 year old frontend developer
           (full stack developer in progress), who developed a love for the craft
-          after finishing my Bachelor studies. {Now many of you might think....
-          Actually LST}
+          after finishing my Bachelor studies............Not yet finished
         </p>
 
         <p>
