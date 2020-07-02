@@ -16,8 +16,9 @@
 </template>
 
 <script>
+import Vue from 'vue';
 // https://www.digitalocean.com/community/tutorials/vuejs-vue-google-maps
-export default {
+export default Vue.extend({
   name: 'GoogleMap',
   data() {
     return {
@@ -59,5 +60,5 @@ export default {
       });
     }
   }
-};
+});
 </script>

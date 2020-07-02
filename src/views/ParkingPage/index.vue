@@ -45,10 +45,10 @@
 </template>
 
 <script lang="ts">
-import pdf from 'vue-pdf';
+// import pdf from 'vue-pdf';
 import SideBar from '@/components/SideBar/index.vue';
-
-export default {
+import Vue from 'vue';
+export default Vue.extend({
   name: 'ParkingPage',
   components: {
     // pdf,
@@ -63,19 +63,19 @@ export default {
   computed: {
     drawer: {
       get(): string {
-        return (this as any).$store.state.drawer;
+        return this.$store.state.drawer;
       },
       set(value: boolean) {
-        (this as any).$store.dispatch('setDrawer', value);
+        this.$store.dispatch('setDrawer', value);
       }
     }
   },
   methods: {
     showCV(): void {
-      (this as any).showsCV = true;
+      this.showsCV = true;
     }
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

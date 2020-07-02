@@ -37,7 +37,7 @@ export default Vue.extend({
   }),
   computed: {
     menuItems(): MenuItem[] {
-      return (this as any).$store.state.menuItems;
+      return this.$store.state.menuItems;
     }
   },
   methods: {

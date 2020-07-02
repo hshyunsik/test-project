@@ -103,9 +103,9 @@
 </template>
 
 <script lang="ts">
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-import SideBar from '@/components/SideBar/index.vue';
+import Vue from 'vue';
+
+// import SideBar from '@/components/SideBar/index.vue';
 import ImageViewer from '@/components/ImageViewer/index.vue';
 import GoogleMap from '@/components/GoogleMap/index.vue';
 
@@ -121,7 +121,7 @@ import * as backgroundInterests from '../../assets/Background_Interests3.jpg';
 // https://survivejs.com/webpack/loading/images/
 // https://medium.com/javascript-in-plain-english/how-to-display-images-from-local-assets-images-folder-when-working-with-react-feb6c5dba526
 
-export default {
+export default Vue.extend({
   name: 'Home',
   components: {
     // SideBar,
@@ -143,38 +143,38 @@ export default {
   computed: {
     firstMenu: {
       get(): string {
-        return (this as any).$store.state.drawer;
+        return this.$store.state.drawer;
       },
       set(value: boolean) {
-        (this as any).$store.dispatch('setDrawer', value);
+        this.$store.dispatch('setDrawer', value);
       }
     },
-    images() {
-      return (this as any).$store.state.images;
+    images(): ImageSrc {
+      return this.$store.state.images;
     },
     chosenImage(): ImageSrc {
-      return (this as any).images.find(
-        (image: ImageSrc) => image.id === (this as any).chosenId
+      return this.$props.images.find(
+        (image: ImageSrc) => image.id === this.chosenId
       );
     }
   },
   mounted() {
     // const src = require(`@/assets/Hyunsik_2.jpg`);
-    (this as any).setBackground('section_1', `url(${backgroundMe})`);
-    (this as any).setBackground('section_3', `url(${backgroundInterests})`);
-    // (this as any).setBackground('section_32', `url(${backgroundInterests})`);
+    this.setBackground('section_1', `url(${backgroundMe})`);
+    this.setBackground('section_3', `url(${backgroundInterests})`);
+    // this.setBackground('section_32', `url(${backgroundInterests})`);
   },
   methods: {
     setChosenId(id: string) {
-      (this as any).chosenId = id;
+      this.chosenId = id;
     },
     setNext() {
-      const intId = parseInt((this as any).chosenId);
+      const intId = parseInt(this.chosenId);
       const newId = ((intId + 1) % 3).toString();
       this.setChosenId(newId);
     },
     setPrevious() {
-      const intId = parseInt((this as any).chosenId);
+      const intId = parseInt(this.chosenId);
       const newId = ((intId + 2) % 3).toString();
       this.setChosenId(newId);
     },
@@ -203,7 +203,7 @@ export default {
       element.style.height = '100vh';
     }
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

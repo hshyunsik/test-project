@@ -30,10 +30,10 @@ export default Vue.extend({
   computed: {
     drawer: {
       get(): string {
-        return (this as any).$store.state.drawer;
+        return this.$store.state.drawer;
       },
       set(value: boolean) {
-        (this as any).$store.dispatch('setDrawer', value);
+        this.$store.dispatch('setDrawer', value);
       }
     }
   },

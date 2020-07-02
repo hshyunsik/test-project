@@ -9,8 +9,6 @@
       />
     </template>
     <v-card>
-      <!-- =====1a, 1aMobiel, 2aMobiel, 2b, -->
-
       <v-divider></v-divider>
       <v-card-text style="height: 100%;">
         <img
@@ -26,7 +24,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { ImageSrc } from '@/store/types';
+// import { ImageSrc } from '@/store/types';
 
 export default Vue.extend({
   name: 'ImageModal',

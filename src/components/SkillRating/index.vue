@@ -30,7 +30,8 @@
 <script lang="ts">
 import { Skill } from '@/store/types.ts';
 
-export default {
+import Vue from 'vue';
+export default Vue.extend({
   name: 'Home',
   components: {},
   data: () => {
@@ -44,7 +45,7 @@ export default {
   },
   computed: {},
   methods: {}
-};
+});
 </script>
 
 <style lang="scss" scoped>

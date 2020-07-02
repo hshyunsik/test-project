@@ -46,7 +46,8 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from 'vue';
+export default Vue.extend({
   name: 'Addition',
   props: {
     name: {
@@ -56,10 +57,10 @@ export default {
   computed: {
     drawer: {
       get(): string {
-        return (this as any).$store.state.drawer;
+        return this.$store.state.drawer;
       },
       set(value: boolean) {
-        (this as any).$store.dispatch('setDrawer', value);
+        this.$store.dispatch('setDrawer', value);
       }
     }
   },
@@ -104,7 +105,7 @@ export default {
       }
     }
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

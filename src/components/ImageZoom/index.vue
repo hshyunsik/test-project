@@ -89,7 +89,6 @@ export default Vue.extend({
       // Get offsetLeft and offsetTop lens
       let x = pos.x - lens.offsetWidth / 2 + img.offsetLeft;
       let y = pos.y - lens.offsetHeight / 2 + img.offsetTop;
-      const relativeLensPos = { x, y };
 
       // Prevent lens from being positioned outside image
       if (x > img.width - lens.offsetWidth) {

@@ -78,8 +78,8 @@
 
 <script lang="ts">
 // import { ValidationProvider } from 'vee-validate';
-
-export default {
+import Vue from 'vue';
+export default Vue.extend({
   name: 'Contact',
   components: {
     // ValidationProvider
@@ -99,27 +99,27 @@ export default {
     async openMail() {
       const valid = await this.validate();
       console.log(valid);
-      if (!(this as any).valid) {
+      if (!this.valid) {
         return;
       }
       const mail = 'h.s.hyunsik@gmail.com';
       window.open(
-        `mailto:${mail}?subject=${(this as any).subject}&body=${
-          (this as any).message
-        }`
+        `mailto:${mail}?subject=${this.subject}&body=${this.message}`
       );
     },
     validate(): boolean {
-      return (this as any).$refs.form.validate();
+      return (this.$refs.form as Vue & { validate: () => boolean }).validate();
     },
-    reset() {
-      (this as any).$refs.form.reset();
+    reset(): void {
+      (this.$refs.form as Vue & { reset: () => void }).reset();
     },
     resetValidation() {
-      (this as any).$refs.form.resetValidation();
+      (this.$refs.form as Vue & {
+        resetValidation: () => void;
+      }).resetValidation();
     }
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

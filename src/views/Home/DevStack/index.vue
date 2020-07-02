@@ -59,8 +59,8 @@
 
 <script lang="ts">
 import SkillRating from '@/components/SkillRating/index.vue';
-
-export default {
+import Vue from 'vue';
+export default Vue.extend({
   name: 'DevStack',
   components: {
     SkillRating
@@ -68,7 +68,7 @@ export default {
   props: {},
   computed: {},
   methods: {}
-};
+});
 </script>
 
 <style lang="scss" scoped>
