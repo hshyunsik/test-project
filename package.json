@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit --max-old-space-size=4076",
     "lint": "vue-cli-service lint",
-    "ui": "vue ui"
+    "ui": "vue ui",
+    "cy:open": "npx cypress open"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -35,8 +36,11 @@
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "1.0.0-beta.31",
+    "cypress": "^4.11.0",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-chai-friendly": "^0.6.0",
+    "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
